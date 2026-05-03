@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPhone転売｜ピックアップの極意"極"</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #0a0a0f;
+    --surface:  #13131a;
+    --card:     #1a1a26;
+    --border:   #2a2a3a;
+    --gold:     #f5c842;
+    --gold-lt:  #fff8d6;
+    --orange:   #ff6b35;
+    --blue:     #3a8dff;
+    --blue-lt:  #e8f3ff;
+    --green:    #2ecc71;
+    --green-lt: #e6faf0;
+    --red:      #e74c3c;
+    --red-lt:   #fef0ee;
+    --text:     #f0f0f8;
+    --muted:    #8888aa;
+    --white:    #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(160deg, #0a0a0f 0%, #1a0a2e 50%, #0a1a0f 100%);
+    padding: 60px 24px 50px;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 30% 40%, rgba(245,200,66,.10) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 35% at 70% 60%, rgba(46,204,113,.08) 0%, transparent 70%);
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--gold), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: 'Oswald', 'Noto Sans JP', sans-serif;
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .hero-title .accent { color: var(--gold); }
+  .hero-sub {
+    font-size: 14px; color: var(--muted);
+    max-width: 480px; margin: 0 auto 28px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,200,66,.12);
+    border: 1px solid rgba(245,200,66,.3);
+    color: var(--gold);
+    font-size: 12px; font-weight: 700;
+    padding: 8px 20px; border-radius: 999px;
+  }
+
+  /* ── WRAPPER ── */
+  .wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  /* ── SECTION HEAD ── */
+  .sec-head {
+    display: flex; align-items: center; gap: 12px;
+    margin: 44px 0 18px;
+  }
+  .sec-num {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: linear-gradient(135deg, var(--gold), var(--orange));
+    color: #000; font-weight: 900; font-size: 15px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .sec-title { font-size: 18px; font-weight: 700; color: var(--white); }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .card-inner { padding: 20px 24px; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    border-radius: 14px; padding: 18px 22px; margin-bottom: 14px;
+    border: 1.5px solid;
+  }
+  .callout.gold   { background: rgba(245,200,66,.08);  border-color: rgba(245,200,66,.35); }
+  .callout.green  { background: rgba(46,204,113,.08);  border-color: rgba(46,204,113,.35); }
+  .callout.blue   { background: rgba(58,141,255,.08);  border-color: rgba(58,141,255,.35); }
+  .callout.red    { background: rgba(231,76,60,.08);   border-color: rgba(231,76,60,.35); }
+  .callout.orange { background: rgba(255,107,53,.08);  border-color: rgba(255,107,53,.35); }
+  .callout-title {
+    font-size: 13px; font-weight: 700; letter-spacing: .05em;
+    margin-bottom: 8px;
+  }
+  .callout.gold   .callout-title { color: var(--gold); }
+  .callout.green  .callout-title { color: var(--green); }
+  .callout.blue   .callout-title { color: var(--blue); }
+  .callout.red    .callout-title { color: var(--red); }
+  .callout.orange .callout-title { color: var(--orange); }
+  .callout-body { font-size: 13.5px; color: #cccce0; line-height: 1.85; }
+  .callout-body strong { color: var(--white); }
+
+  /* ── STEP FLOW ── */
+  .step-flow { display: flex; flex-direction: column; gap: 0; }
+  .step-item {
+    display: flex; gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-left { display: flex; flex-direction: column; align-items: center; gap: 0; flex-shrink: 0; }
+  .step-circle {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--orange));
+    color: #000; font-weight: 900; font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-line {
+    width: 2px; flex: 1; min-height: 20px;
+    background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+    opacity: .25; margin-top: 4px;
+  }
+  .step-right { flex: 1; padding-top: 4px; }
+  .step-right .step-label { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: .1em; margin-bottom: 4px; }
+  .step-right .step-content { font-size: 13.5px; color: #cccce0; line-height: 1.8; }
+  .step-right .step-content strong { color: var(--white); }
+  .step-right .step-content .em-gold { color: var(--gold); font-weight: 700; }
+  .step-right .step-content .em-green { color: var(--green); font-weight: 700; }
+  .step-right .step-content .em-red { color: var(--red); font-weight: 700; }
+
+  /* ── PROFIT BANNER ── */
+  .profit-banner {
+    background: linear-gradient(135deg, #1a1200, #2a1e00);
+    border: 1.5px solid rgba(245,200,66,.4);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .profit-banner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(245,200,66,.12) 0%, transparent 70%);
+  }
+  .profit-banner .pb-label { font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: 2px; margin-bottom: 10px; }
+  .profit-banner .pb-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(36px, 8vw, 60px);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .profit-banner .pb-sub { font-size: 13px; color: var(--muted); }
+  .profit-banner .pb-example {
+    margin-top: 16px;
+    display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  }
+  .pb-chip {
+    background: rgba(245,200,66,.15); border: 1px solid rgba(245,200,66,.3);
+    color: var(--gold); font-size: 12px; font-weight: 700;
+    padding: 4px 14px; border-radius: 999px;
+  }
+
+  /* ── IMAGE PLACEHOLDER ── */
+  .img-block {
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+  .img-visual {
+    width: 100%; aspect-ratio: 16/7;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .img-visual.dark-gold {
+    background: linear-gradient(135deg, #0f0d00, #2a1e00, #1a1200);
+  }
+  .img-visual.dark-green {
+    background: linear-gradient(135deg, #001a0a, #002a12, #001a0f);
+  }
+  .img-visual.dark-blue {
+    background: linear-gradient(135deg, #00051a, #000d2a, #00051f);
+  }
+  .img-visual span { position: relative; z-index: 1; filter: drop-shadow(0 0 20px rgba(255,255,255,.3)); }
+  .img-caption {
+    padding: 12px 18px;
+    font-size: 12px; color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── NOTE ── */
+  .note {
+    border-left: 3px solid;
+    border-radius: 0 10px 10px 0;
+    padding: 10px 16px;
+    font-size: 12.5px; color: #aaaacc; line-height: 1.8;
+    margin-top: 10px;
+  }
+  .note.gold   { border-color: var(--gold);   background: rgba(245,200,66,.07); }
+  .note.green  { border-color: var(--green);  background: rgba(46,204,113,.07); }
+  .note.red    { border-color: var(--red);    background: rgba(231,76,60,.07); }
+  .note.blue   { border-color: var(--blue);   background: rgba(58,141,255,.07); }
+  .note strong { color: var(--white); font-weight: 700; }
+
+  /* ── PROS/CONS ── */
+  .voice-box {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 18px 22px;
+    margin-bottom: 14px;
+  }
+  .voice-box .vb-title { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: .1em; margin-bottom: 12px; }
+  .vb-item { display: flex; gap: 10px; font-size: 13px; color: #cccce0; line-height: 1.75; padding: 6px 0; border-bottom: 1px solid var(--border); }
+  .vb-item:last-child { border-bottom: none; }
+  .vb-icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 36px 0;
+  }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: linear-gradient(135deg, #0d1a00, #1a2a00);
+    border: 1.5px solid rgba(46,204,113,.35);
+    border-radius: 18px;
+    padding: 36px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 20%, rgba(46,204,113,.12) 0%, transparent 70%);
+  }
+  .cta-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px; font-weight: 700; color: var(--white);
+    margin-bottom: 10px; position: relative;
+  }
+  .cta-sub { font-size: 13.5px; color: #aaaacc; line-height: 1.85; margin-bottom: 20px; position: relative; }
+  .cta-chips { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; position: relative; }
+  .cta-chip {
+    background: rgba(46,204,113,.15); border: 1px solid rgba(46,204,113,.3);
+    color: var(--green); font-size: 12px; font-weight: 700;
+    padding: 5px 14px; border-radius: 999px;
+  }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--green), #27ae60);
+    color: #fff; font-size: 14px; font-weight: 700;
+    padding: 14px 32px; border-radius: 12px;
+    text-decoration: none; position: relative;
+    box-shadow: 0 8px 24px rgba(46,204,113,.3);
+  }
+
+  /* ── TEXT UTILS ── */
+  .text-gold   { color: var(--gold); font-weight: 700; }
+  .text-green  { color: var(--green); font-weight: 700; }
+  .text-red    { color: var(--red); font-weight: 700; }
+  .text-orange { color: var(--orange); font-weight: 700; }
+  .body-text { font-size: 13.5px; color: #cccce0; line-height: 1.9; margin-bottom: 12px; }
+  .body-text strong { color: var(--white); }
+
+  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+  .tag {
+    font-size: 10px; font-weight: 700; letter-spacing: .08em;
+    padding: 3px 10px; border-radius: 999px; border: 1px solid;
+  }
+  .tag.gold   { color: var(--gold);   border-color: rgba(245,200,66,.4);   background: rgba(245,200,66,.1); }
+  .tag.green  { color: var(--green);  border-color: rgba(46,204,113,.4);   background: rgba(46,204,113,.1); }
+  .tag.blue   { color: var(--blue);   border-color: rgba(58,141,255,.4);   background: rgba(58,141,255,.1); }
+  .tag.orange { color: var(--orange); border-color: rgba(255,107,53,.4);   background: rgba(255,107,53,.1); }
+
+  @media(max-width:600px) {
+    .hero { padding: 48px 20px 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-eyebrow">📱 iPhone転売 完全攻略ガイド</div>
+  <h1 class="hero-title">さよなら「電子」。<br>ピックアップの極意<span class="accent">"極"</span></h1>
+  <p class="hero-sub">「電子」に悩まされず、高確率でピックアップが取れる方法をすべて公開します。</p>
+  <div class="hero-badge">🏆 仲間内で1週間 50〜60台に成功</div>
+</div>
+
+<!-- ===== CONTENT ===== -->
+<div class="wrapper">
+
+  <!-- タグ -->
+  <div class="tag-row">
+    <span class="tag gold">転売ノウハウ</span>
+    <span class="tag green">ペイディ活用</span>
+    <span class="tag blue">ピックアップ</span>
+    <span class="tag orange">副業</span>
+  </div>
+
+  <!-- INTRO -->
+  <p class="body-text">「iPhone転売って、ただ買って売るだけで利益が出るんですよね？」「月10万とか余裕じゃないですか！」こうした声を聞いて参戦してくる方が増えています。確かにiPhone転売はシンプルかつ強力なスキームです。しかし、<strong>現実はそう甘くありません。</strong></p>
+
+  <!-- 悲鳴ボイス -->
+  <div class="voice-box">
+    <div class="vb-title">😰 よくある悲鳴パターン</div>
+    <div class="vb-item"><span class="vb-icon">😱</span>「島流し」にあっていつまでも届かないのにカード枠が埋まってしまう</div>
+    <div class="vb-item"><span class="vb-icon">💸</span>「デビットで流された」せいで、仕入れ資金（現金）が枯渇した</div>
+  </div>
+
+  <!-- ボーナスタイム -->
+  <div class="sec-head">
+    <div class="sec-num">📈</div>
+    <div class="sec-title">今こそが「マジのボーナスタイム」</div>
+  </div>
+
+  <div class="img-block">
+    <div class="img-visual dark-gold"><span>💹</span></div>
+    <div class="img-caption">現在、連休前の為替介入・輸出ストップの影響で市場は弱気相場が継続</div>
+  </div>
+
+  <div class="profit-banner">
+    <div class="pb-label">1台あたりの利益</div>
+    <div class="pb-num">14,000<span style="font-size:28px;">円〜</span></div>
+    <div class="pb-sub">弱気相場でも、これだけの利益が確定する</div>
+    <div class="pb-example">
+      <span class="pb-chip">月10万〜20万 十分射程圏内</span>
+      <span class="pb-chip">5日で13台 → 利益20万円の実績あり</span>
+    </div>
+  </div>
+
+  <div class="callout gold">
+    <div class="callout-title">💡 POINT</div>
+    <div class="callout-body">これだけ美味しい案件は他にありません。こんな状況でも1台14,000円の利益が出るのは、<strong>冷静に考えて異常</strong>です。</div>
+  </div>
+
+  <!-- 極意本編 -->
+  <div class="divider"></div>
+
+  <div class="sec-head">
+    <div class="sec-num">🎯</div>
+    <div class="sec-title">注文を99.9%通す新常識：極意"極"</div>
+  </div>
+
+  <p class="body-text">この方法を実践できる環境にあれば、ピックアップの注文が「電子」にならずに通る確率は<strong>飛躍的に高まります。</strong>実際に仲間内でこの1週間だけで合計<span class="text-gold">50〜60台のピックアップに成功</span>しています。</p>
+
+  <div class="note blue">📦 郵送では未検証です。ピックアップ（店頭受け取り）専用の方法です。</div>
+
+  <!-- 極意1 -->
+  <div style="margin-top:24px;">
+    <div class="callout gold" style="text-align:center; padding:28px;">
+      <div class="callout-title" style="font-size:16px; letter-spacing:2px;">🔑 極意その１</div>
+      <div style="font-family:'Oswald',sans-serif; font-size:32px; color:#f5c842; margin:8px 0;">決済を「ペイディ」にする</div>
+      <div style="font-size:13px; color:#aaaacc;">あとは以前の極意通り「店舗選択」で待機 → 早押し対決に挑むだけ</div>
+    </div>
+  </div>
+
+  <p class="body-text">「え、それだけ？」と思うかもしれませんが、<strong>これだけで注文の通りやすさが劇的に変わります。</strong></p>
+
+  <div class="img-block">
+    <div class="img-visual dark-blue"><span>💳</span></div>
+    <div class="img-caption">あと払いペイディ（Paidy）— 決済手段を変えるだけで通過率が激変</div>
+  </div>
+
+  <!-- 極意2：ペイディ一括 -->
+  <div class="sec-head">
+    <div class="sec-num">🔥</div>
+    <div class="sec-title">【秘策】ペイディで「数」を積む方法</div>
+  </div>
+
+  <p class="body-text">「ペイディって36回分割でしょ？枠的に1〜2台しか買えないのでは？」——そうなんです。ここからがこの記事の<strong>本題</strong>です。</p>
+
+  <div class="callout green">
+    <div class="callout-title">💡 ポイント：一括支払いへの変更で枠を回転させる</div>
+    <div class="callout-body">実はペイディには<strong>「一括で支払う方法」</strong>が存在します。これを使えば枠を空けて回転させることが可能です。</div>
+  </div>
+
+  <!-- ステップ -->
+  <div class="card" style="margin-top:14px;">
+    <div class="card-inner">
+      <div style="font-size:13px; font-weight:700; color:var(--gold); letter-spacing:.08em; margin-bottom:16px;">📋 一括支払い変更 → すぐ払い 完全手順</div>
+      <div class="step-flow">
+        <div class="step-item">
+          <div class="step-left"><div class="step-circle">1</div><div class="step-line"></div></div>
+          <div class="step-right">
+            <div class="step-label">PURCHASE</div>
+            <div class="step-content"><strong>通常通りペイディでiPhoneを購入する</strong></div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-left"><div class="step-circle">2</div><div class="step-line"></div></div>
+          <div class="step-right">
+            <div class="step-label">REFLECT</div>
+            <div class="step-content"><strong>購入がペイディアプリに反映</strong>されるのを確認する</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-left"><div class="step-circle">3</div><div class="step-line"></div></div>
+          <div class="step-right">
+            <div class="step-label">CONTACT</div>
+            <div class="step-content">カスタマーサポート（お問い合わせフォーム）へ連絡し、<span class="em-gold">「一括で支払いたい」</span>と伝える</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-left"><div class="step-circle">4</div><div class="step-line"></div></div>
+          <div class="step-right">
+            <div class="step-label">CHANGE</div>
+            <div class="step-content">返信が来たら、<strong>アプリ内で一括払いへ変更</strong>する</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-left"><div class="step-circle">5</div></div>
+          <div class="step-right">
+            <div class="step-label">PAY NOW</div>
+            <div class="step-content">明細に反映されたら<span class="em-green">「すぐ払い」</span>でコンビニ決済 → 枠が空く → 次の台を購入</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 注意事項 -->
+  <div class="note gold" style="margin-top:4px;">⚠️ <strong>すぐ払いの上限：299,000円/月。</strong>超えるとその月はすぐ払い利用不可になります。</div>
+  <div class="note gold" style="margin-top:8px;">⚠️ <strong>1台ずつ処理しましょう。</strong>一括変更 → すぐ払いは必ず1台ずつ行ってください。</div>
+  <div class="note gold" style="margin-top:8px;">⏱ すぐ払いは<strong>明細反映後から14日以内</strong>にコンビニ払いで利用できます。</div>
+
+  <!-- サイクル説明 -->
+  <div class="img-block" style="margin-top:20px;">
+    <div class="img-visual dark-green" style="aspect-ratio:16/6; flex-direction:column; gap:8px;">
+      <span style="font-size:32px;">🔄</span>
+      <div style="font-size:13px; color:#aaaacc; text-align:center; padding:0 20px;">購入 → 一括変更 → すぐ払い → 枠空く → 次の台<br>このサイクルを繰り返すだけ</div>
+    </div>
+    <div class="img-caption">このサイクルで「島流し」のリスクを最小化し、短期間で10万〜20万円の利益を積み上げる</div>
+  </div>
+
+  <!-- 受取人変更 -->
+  <div class="divider"></div>
+
+  <div class="sec-head">
+    <div class="sec-num">📍</div>
+    <div class="sec-title">「近くに店舗がない」と諦めていませんか？</div>
+  </div>
+
+  <p class="body-text">Apple Storeは全国に<strong>関東・関西・名古屋・福岡の10店舗</strong>しかありません。「遠いからピックアップは無理」と諦めている方が非常に多いです。</p>
+
+  <div class="callout blue">
+    <div class="callout-title">💡 意外と知らない事実</div>
+    <div class="callout-body"><strong>「購入者本人が取りに行かなければならない」という決まりはありません。</strong><br>受取人の変更は後からでも可能です。店舗の近くに住む友人・家族・親戚に行ってもらうことができます。</div>
+  </div>
+
+  <div class="note blue">🤝 「横のつながり」と仕組みを最大限に活用できるかどうかが、利益を大きく増やすための分かれ道です。</div>
+
+  <!-- 利益の使い道 -->
+  <div class="divider"></div>
+
+  <div class="sec-head">
+    <div class="sec-num">✨</div>
+    <div class="sec-title">その利益で、あなたは何をしますか？</div>
+  </div>
+
+  <div class="img-block">
+    <div class="img-visual dark-gold" style="aspect-ratio:16/6; gap:12px;">
+      <span>✈️</span><span>🏖️</span><span>💰</span>
+    </div>
+    <div class="img-caption">iPhone転売で積み上げた種銭で、次のステージへ。旅行・自己投資・家族へのご褒美…可能性は無限大。</div>
+  </div>
+
+  <p class="body-text">iPhone転売で手に入れた種銭で、他の副業に自己投資するのもいい。頑張っている自分へのご褒美や、家族を旅行に連れて行くのもいいでしょう。実際にたまったお金とマイルで<strong>家族をグアムに連れて行けるレベル</strong>になりました。</p>
+
+  <!-- 正直な現実 -->
+  <div class="divider"></div>
+
+  <div class="sec-head">
+    <div class="sec-num">⚠️</div>
+    <div class="sec-title">正直に言う：転売だけで一生稼ぐのは難しい</div>
+  </div>
+
+  <div class="callout red">
+    <div class="callout-title">🚨 リアルな話</div>
+    <div class="callout-body">
+      ・今回のやり方も何台まで使えるかわからない<br>
+      ・いつ買取価格が下がるかわからない<br>
+      ・対策が出ては塞がれ、また対策を練る繰り返し<br><br>
+      <strong>月利50万〜100万を「一生」稼ぎ続けるには、再現性が低いのが正直なところです。</strong>
+    </div>
+  </div>
+
+  <div class="voice-box">
+    <div class="vb-title">🏁 プロの転売ヤーへの道は2択</div>
+    <div class="vb-item"><span class="vb-icon">👥</span>強固な組織（チーム）に所属してマンパワーで回す</div>
+    <div class="vb-item"><span class="vb-icon">💰</span>圧倒的な資金の暴力で、エラーを恐れず買いまくる</div>
+  </div>
+
+  <p class="body-text">個人がお小遣い稼ぎの延長で到達できるほど、今のiPhone転売は甘くありません。</p>
+
+  <!-- CTA -->
+  <div class="divider"></div>
+
+  <div class="cta-block">
+    <div class="cta-title">より確実に、より大きく稼ぐ道へ</div>
+    <div class="cta-sub">
+      iPhone転売で培った「スマホの知識」は、MNP（乗り換え）でそのまま大きな利益に直結します。<br>
+      再現性100%の「MNP」と「SNS（X）運用」を組み合わせるのが、最も現実的で賢い戦略です。
+    </div>
+    <div class="cta-chips">
+      <span class="cta-chip">📱 MNPの極意</span>
+      <span class="cta-chip">📊 X運用の裏側</span>
+      <span class="cta-chip">💎 高単価アフィリエイト</span>
+    </div>
+    <a href="https://lin.ee/AsTWK4D" class="cta-btn">📲 公式LINEへ飛び込む</a>
+    <div style="margin-top:14px; font-size:11px; color:var(--muted);">公式LINE限定の秘匿性の高い情報も今後ガッツリ流していく予定です</div>
+  </div>
+
+  <!-- チーム誘致 -->
+  <div class="divider"></div>
+
+  <div style="background:linear-gradient(135deg,#0a0f1a,#0a1a0f); border:1.5px solid rgba(46,204,113,.35); border-radius:20px; padding:36px 28px; text-align:center; position:relative; overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(46,204,113,.10) 0%,transparent 70%);"></div>
+    <div style="font-size:48px; margin-bottom:14px; position:relative;">🤝</div>
+    <div style="font-family:'Oswald',sans-serif; font-size:clamp(20px,5vw,30px); font-weight:700; color:#fff; line-height:1.3; margin-bottom:14px; position:relative;">
+      1人で闇雲に動くより、<br><span style="color:var(--green);">チームで一緒に動きませんか？</span>
+    </div>
+    <div style="font-size:13.5px; color:#aaaacc; line-height:1.9; max-width:480px; margin:0 auto 22px; position:relative;">
+      情報収集、資金管理、受取対応——一人でやるには限界があります。<br>
+      チームに入れば仲間の知恵と経験をフル活用しながら、<strong style="color:#fff;">より早く・より確実に稼ぐ</strong>ことができます。<br><br>
+      <span style="color:var(--green); font-weight:700;">いつでも公式LINEから悩み相談受けますよ。</span><br>
+      些細な疑問でも、迷っていることでも、気軽に飛び込んできてください。
+    </div>
+    <a href="https://lin.ee/AsTWK4D" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#06C755,#04a044);color:#fff;font-size:15px;font-weight:700;padding:16px 36px;border-radius:14px;text-decoration:none;position:relative;box-shadow:0 10px 30px rgba(46,204,113,.35);">
+      💬 LINEで相談する
+    </a>
+    <div style="margin-top:12px; font-size:12px; color:var(--muted); position:relative;">lin.ee/AsTWK4D</div>
+  </div>
+
+</div><!-- /wrapper -->
+</body>
+</html>
